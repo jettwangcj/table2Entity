@@ -33,6 +33,8 @@
     <!--通过类生成代码，需要依赖Java插件-->
     <depends>com.intellij.modules.java</depends>
 
+    <idea-version since-build="221" until-build="231.*"/>
+
     <actions>
         <action id="table2Entity" class="cn.org.wangchangjiu.table2entity.action.Table2EntityAction" description="table2Entity" text="table2Entity" >
             <keyboard-shortcut first-keystroke="control shift 9" keymap="$default"/>
