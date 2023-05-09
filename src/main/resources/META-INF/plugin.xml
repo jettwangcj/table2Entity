@@ -35,8 +35,14 @@
 
     <idea-version since-build="221" until-build="231.*"/>
 
+    <change-notes>
+        <![CDATA[
+          Add support for latest IDEs 2022.3.3
+        ]]>
+    </change-notes>
+
     <actions>
-        <action id="table2Entity" class="cn.org.wangchangjiu.table2entity.action.Table2EntityAction" description="table2Entity" text="table2Entity" >
+        <action id="table2Entity" class="cn.org.wangchangjiu.table2entity.action.Table2EntityAction" description="table2Entity" text="table2Entity" icon="/icons/table2Entity.png">
             <keyboard-shortcut first-keystroke="control shift 9" keymap="$default"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
