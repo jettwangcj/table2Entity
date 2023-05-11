@@ -1,5 +1,7 @@
 package cn.org.wangchangjiu.table2entity.util;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -50,6 +52,13 @@ public class CommonUtil {
         importPackages.add("import lombok.Data;");
         importPackages.add("import javax.persistence.*;");
         return importPackages;
+    }
+
+    public static String pathToPackage(String fullPath){
+        if (!StringUtils.isEmpty(fullPath)) {
+            return fullPath.replace("/", ".");
+        }
+        return fullPath;
     }
 
     public static void main(String[] args) {

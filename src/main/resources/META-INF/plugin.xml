@@ -37,6 +37,14 @@
 
     <change-notes>
         <![CDATA[
+          1.1.0
+          <ul>
+            <li>Move the code generation path to the setting configuration</li>
+            <li>After the project is opened, add a check path configuration and remind</li>
+            <li>Add path configuration persistence</li>
+            <li>Add verification to the input box</li>
+          </ul>
+
           Add support for latest IDEs 2022.3.3
         ]]>
     </change-notes>
@@ -51,6 +59,25 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <!-- 设置 面板 配置-->
+        <applicationConfigurable
+                parentId="tools"
+                instance="cn.org.wangchangjiu.table2entity.extension.Table2EntitySettingConfigurable"
+                id="cn.org.wangchangjiu.table2EntitySettingConfigurable"
+                displayName="table2Entity"/>
 
+        <!--
+        projectService 表示每个项目一个缓存，各个项目独立，
+        applicationService 表示持久化配置是服务于应用级别，所有项目都使用这个配置
+
+        这里用 projectService 的好处就是，每个项目的 entity 包路径是不同的，各自维护
+        -->
+        <projectService serviceImplementation="cn.org.wangchangjiu.table2entity.extension.Table2EntityConfigSettingCache"/>
     </extensions>
+
+    <projectListeners>
+        <!-- 检查设置监听器 -->
+        <listener class="cn.org.wangchangjiu.table2entity.listener.PathConfigSettingListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </projectListeners>
 </idea-plugin>
