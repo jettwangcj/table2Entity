@@ -9,11 +9,11 @@ import cn.org.wangchangjiu.table2entity.util.CommonUtil;
 import cn.org.wangchangjiu.table2entity.util.LocalFileUtils;
 import cn.org.wangchangjiu.table2entity.util.VelocityUtils;
 import com.intellij.ide.highlighter.JavaFileType;
-import com.intellij.ide.util.PackageChooserDialog;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
@@ -23,13 +23,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
-import com.intellij.psi.PsiPackage;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.ui.GotItTooltip;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 public class CreateTableCodeDialog extends JDialog {

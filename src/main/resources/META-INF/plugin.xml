@@ -49,8 +49,10 @@
         ]]>
     </change-notes>
 
+
     <actions>
-        <action id="table2Entity" class="cn.org.wangchangjiu.table2entity.action.Table2EntityAction" description="table2Entity" text="table2Entity" icon="/icons/table2Entity.png">
+        <action id="table2Entity" class="cn.org.wangchangjiu.table2entity.action.Table2EntityAction"
+                description="table2Entity" text="table2Entity" icon="/icons/table2Entity.png">
             <keyboard-shortcut first-keystroke="control shift 9" keymap="$default"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
@@ -60,8 +62,12 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <!-- 设置 面板 配置-->
-        <applicationConfigurable
-                parentId="tools"
+        <!-- parentId 为 tools 表示放在 tools工具下面，parentId
+                      支持的属性值有：appearance、build、build.tools、tools、language、editor、project，other，若我们想把配置项声明为顶级，则配置属性值为 root 。
+             instance: 实现了 Configurable 接口的类路径,在插件配置被点击时，IntelliJ 平台会创建该实例对象.
+             displayName: 显示名称，该名字会显示在 Settings/Preferences 中，必须与代码实现的 String getDisplayName() 返回值一致，否则可能出现未知错误。
+         -->
+        <applicationConfigurable parentId="tools"
                 instance="cn.org.wangchangjiu.table2entity.extension.Table2EntitySettingConfigurable"
                 id="cn.org.wangchangjiu.table2EntitySettingConfigurable"
                 displayName="table2Entity"/>
