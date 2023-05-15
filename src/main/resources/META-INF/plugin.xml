@@ -37,6 +37,11 @@
 
     <change-notes>
         <![CDATA[
+          1.1.1
+          <ul>
+            <li>Repair the configuration persistence failure bug<li>
+          <ul>
+
           1.1.0
           <ul>
             <li>Move the code generation path to the setting configuration</li>
