@@ -11,6 +11,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     implementation("com.github.jsqlparser:jsqlparser:4.6")
     implementation("org.apache.velocity:velocity:1.7")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
 
 repositories {

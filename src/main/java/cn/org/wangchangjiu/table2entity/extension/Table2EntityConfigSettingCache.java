@@ -1,10 +1,12 @@
 package cn.org.wangchangjiu.table2entity.extension;
 
 import cn.org.wangchangjiu.table2entity.model.ConfigSetting;
+import cn.org.wangchangjiu.table2entity.model.ConfigSettingConverter;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.project.Project;
+import com.intellij.util.xmlb.annotations.OptionTag;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,6 +18,7 @@ import java.util.Set;
 @State(name = "configSetting.cache", storages = {@Storage(value = "configSetting-cache.xml")})
 public class Table2EntityConfigSettingCache implements PersistentStateComponent<Table2EntityConfigSettingCache> {
 
+    @OptionTag(converter = ConfigSettingConverter.class)
     private ConfigSetting configSetting;
 
     public static Table2EntityConfigSettingCache getInstance(Project project) {
