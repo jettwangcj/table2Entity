@@ -53,7 +53,8 @@ public class CreateTableCodeDialog extends JDialog {
             Table2EntityConfigSettingCache state = Table2EntityConfigSettingCache.getInstance(anActionEvent.getProject());
             if(state == null || state.getConfig() == null || StringUtils.isEmpty(state.getConfig().getFullPath())){
 
-                Notification notification = new Notification("Print", "table2EntitySetting", "检查到没有设置代码生成路径", NotificationType.INFORMATION);
+                Notification notification = new Notification("Print", "table2EntitySetting",
+                        "检查到没有设置代码生成路径", NotificationType.INFORMATION);
                 // 在提示消息中，增加一个 Action，可以通过 Action 一步打开配置界面
                 notification.addAction(new OpenPathConfigSettingAction("打开配置界面"));
                 Notifications.Bus.notify(notification, project);
@@ -74,7 +75,8 @@ public class CreateTableCodeDialog extends JDialog {
 
             String createTableSQLText = code.getText();
             if (StringUtils.isEmpty(createTableSQLText)) {
-                new GotItTooltip("got.it.id", "", ProjectManager.getInstance().getDefaultProject()).
+                new GotItTooltip("got.it.id", "",
+                        ProjectManager.getInstance().getDefaultProject()).
                         withShowCount(Integer.MAX_VALUE).
                         withHeader("请正确输入MySQL建表语句!").
                         show(codeInputLabel, GotItTooltip.RIGHT_MIDDLE);

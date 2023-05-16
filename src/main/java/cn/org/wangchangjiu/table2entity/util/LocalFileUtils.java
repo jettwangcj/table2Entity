@@ -11,12 +11,9 @@ import java.io.IOException;
 
 public class LocalFileUtils {
 
-    public static final String LINE = System.getProperty("line.separator");
-
-
     public static PsiDirectory getChildDirNotExistCreate(Project project, VirtualFile root, String childPackage) throws IOException {
         if (root == null || childPackage == null || childPackage == "") {
-
+            return null;
         }
         String[] childs = childPackage.split("\\.");
         VirtualFile childFile = root;
@@ -30,33 +27,5 @@ public class LocalFileUtils {
         }
 
         return PsiManager.getInstance(project).findDirectory(childFile);
-    }
-
-
-    public static PsiDirectory findParentDirectoryOrLevel(PsiDirectory file, String parentName, Integer level) {
-        if (file == null || parentName == null) {
-            return null;
-        }
-        VirtualFile root = ProjectRootManager.getInstance(file.getProject()).getFileIndex().getSourceRootForFile(file.getVirtualFile());
-        PsiDirectory parent = file;
-        PsiDirectory levelResult = file;
-        int idx = 1;
-        while (parent != null && !root.getPath().equals(parent.getVirtualFile().getPath())) {
-            if (idx > level) {
-                levelResult = levelResult.getParent();
-            }
-            if (parentName.equals(parent.getName())) {
-                return parent;
-            }
-            parent = parent.getParent();
-            idx++;
-        }
-        return levelResult;
-    }
-
-    public static String getPackageForDir(PsiDirectory dir) {
-        VirtualFile contentRoot = ProjectRootManager.getInstance(dir.getProject()).getFileIndex().getSourceRootForFile(dir.getVirtualFile());
-        String relativePath = dir.getVirtualFile().getPath().substring(contentRoot.getPath().length() + 1);
-        return relativePath.replaceAll("/", ".");
     }
 }
