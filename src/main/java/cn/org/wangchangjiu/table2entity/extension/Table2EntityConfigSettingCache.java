@@ -10,11 +10,6 @@ import com.intellij.util.xmlb.annotations.OptionTag;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 @State(name = "configSetting.cache", storages = {@Storage(value = "configSetting-cache.xml")})
 public class Table2EntityConfigSettingCache implements PersistentStateComponent<Table2EntityConfigSettingCache> {
 
