@@ -37,6 +37,11 @@
 
     <change-notes>
         <![CDATA[
+          1.1.2
+          <ul>
+            <li>fix bug<li>
+          <ul>
+
           1.1.1
           <ul>
             <li>Repair the configuration persistence failure bug<li>
