@@ -12,6 +12,7 @@ import net.sf.jsqlparser.statement.create.table.NamedConstraint;
 
 import java.io.StringReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Classname CreateTableParser
@@ -58,7 +59,9 @@ public class CreateTableParser {
                 return false;
             }).forEach(item -> {
                 NamedConstraint namedConstraint = NamedConstraint.class.cast(item);
-                primaryKeys.addAll(namedConstraint.getColumnsNames());
+                if(namedConstraint.getColumnsNames() != null && namedConstraint.getColumnsNames().size() > 0){
+                    primaryKeys.addAll(namedConstraint.getColumnsNames().stream().map(name -> CommonUtil.dropQuotationMark(name)).collect(Collectors.toList()));
+                }
             });
 
             List<ColumnDefinition> columnDefinitions = createTable.getColumnDefinitions();

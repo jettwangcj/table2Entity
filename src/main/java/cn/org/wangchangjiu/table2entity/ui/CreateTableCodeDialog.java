@@ -41,7 +41,7 @@ public class CreateTableCodeDialog extends JDialog {
         setContentPane(contentPane);
         setTitle("table2Entity");
         setSize(600, 500);
-        setLocation(200, 200);
+        setLocation(600, 200);
         setModal(true);
         setResizable(true);
         getRootPane().setDefaultButton(buttonOK);
